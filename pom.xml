@@ -9,7 +9,7 @@
 
   <name>Active Stack Parent</name>
   <description>Parent pom of active stack projects.</description>
-  <url>https://github.com/ActiveStack/active-parent</url>
+  <url>http://activestack.github.io/active-parent/</url>
   <inceptionYear>2015</inceptionYear>
   <licenses>
     <license>
