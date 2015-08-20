@@ -5,10 +5,11 @@
 
   <groupId>org.activestack</groupId>
   <artifactId>active-parent</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
 
   <name>Active Stack Parent</name>
   <description>Parent pom of active stack projects.</description>
+  <url>https://github.com/ActiveStack/active-parent</url>
   <inceptionYear>2015</inceptionYear>
   <licenses>
     <license>
@@ -17,6 +18,15 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <developers>
+    <developer>
+      <id>bhamail</id>
+      <name>Dan Rollo</name>
+      <email>danrollo@gmail.com</email>
+      <timezone>-4</timezone>
+    </developer>
+  </developers>
 
   <prerequisites>
     <maven>3</maven>
