@@ -3,6 +3,7 @@ ${project.name}
   
 ${project.description}
 
+[![Circle CI](https://circleci.com/gh/ActiveStack/active-parent/tree/master.svg?style=svg)](https://circleci.com/gh/ActiveStack/active-parent/tree/master)
 
 misc notes:
 
