@@ -10,16 +10,14 @@
   <name>Active Stack Parent</name>
   <description>Parent pom of active stack projects.</description>
   <inceptionYear>2015</inceptionYear>
-
-  <!--
   <licenses>
     <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
--->
+
   <prerequisites>
     <maven>3</maven>
   </prerequisites>
