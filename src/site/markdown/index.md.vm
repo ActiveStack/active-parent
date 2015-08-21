@@ -21,7 +21,7 @@ misc notes:
      version of Maven specified in `.mvn/wrapper/maven-wrapper.properties` it will be downloaded for the user first.     
      
      (Note: Initial maven-wrapper files were setup as per: [maven-wrapper](https://github.com/takari/maven-wrapper),
-      using: `mvn -N io.takari:maven:wrapper`.)
+      using: `mvn -N io.takari:maven:wrapper`. You may wish to use the same command when creating new projects.)
 
 * Publishing:
   

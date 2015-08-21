@@ -6,6 +6,7 @@
   <groupId>org.activestack</groupId>
   <artifactId>active-parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>Active Stack Parent</name>
   <description>Parent pom of active stack projects.</description>
