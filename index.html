@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Date-Revision-yyyymmdd" content="20150821" />
     <meta http-equiv="Content-Language" content="en" />
-    <title>Active Stack Parent &#x2013; Active Stack Parent</title>
+    <title>Active Stack Framework &#x2013; About</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-1.4.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -27,7 +27,7 @@
           <div id="banner">
         <div class="pull-left">
                                 <div id="bannerLeft">
-                <h2>Active Stack Parent</h2>
+                <h2>Active Stack Framework</h2>
                 </div>
                       </div>
         <div class="pull-right">  </div>
@@ -57,18 +57,13 @@
                 
                     
                 <ul class="nav nav-list">
-                              <li class="nav-header">Overview</li>
+                    <li class="nav-header">Parent Project</li>
                               
-      <li class="active">
-  
-            <a href="#"><span class="none"></span>Introduction</a>
-          </li>
-                
       <li>
   
-                          <a href="docdocs.html" title="Doc docs">
+                          <a href="../../active-parent.git/index.html" title="Active Stack Parent">
           <span class="none"></span>
-        Doc docs</a>
+        Active Stack Parent</a>
             </li>
                               <li class="nav-header">Project Documentation</li>
                                                                                                                                                                                                                                                                               
@@ -183,65 +178,9 @@
                 
         <div id="bodyColumn"  class="span10" >
                                   
-            <h1>Active Stack Parent</h1>
-<p>Parent pom of active stack projects.</p>
-<p><a class="externalLink" href="https://circleci.com/gh/ActiveStack/active-parent/tree/master"><img src="https://circleci.com/gh/ActiveStack/active-parent/tree/master.svg?style=svg" alt="Circle CI" /></a></p>
-<p>misc notes:</p>
-
-<ul>
-  
-<li>
-<p>Maven Wrapper:<br /> Normally you instruct users to run the mvn command like the following:</p>
-  
-<div class="source">
-<div class="source"><pre class="prettyprint">$ mvn clean package
-</pre></div></div> But now, with a Maven Wrapper setup, you can instruct users to run wrapper scripts:
-  
-<div class="source">
-<div class="source"><pre class="prettyprint">$ ./mvnw clean package
-</pre></div></div> or
-  
-<div class="source">
-<div class="source"><pre class="prettyprint">$ ./mvnw.cmd clean package
-</pre></div></div> A normal Maven build will be executed with the one important change that if the user doesn&#x2019;t have the necessary  version of Maven specified in <tt>.mvn/wrapper/maven-wrapper.properties</tt> it will be downloaded for the user first.
-<p>(Note: Initial maven-wrapper files were setup as per: <a class="externalLink" href="https://github.com/takari/maven-wrapper">maven-wrapper</a>,  using: <tt>mvn -N io.takari:maven:wrapper</tt>. You may wish to use the same command when creating new projects.)</p></li>
-  
-<li>
-<p>Publishing:</p>
-<p>To deploy to maven central, follow the steps described here: <a class="externalLink" href="http://central.sonatype.org/pages/apache-maven.html">http://central.sonatype.org/pages/apache-maven.html</a></p>
-<p>You will need at least the following configuration in your <tt>.m2/settings.xml</tt> file:</p>
-  
-<div class="source">
-<div class="source"><pre class="prettyprint">&lt;settings&gt;
-  &lt;servers&gt;
-    &lt;server&gt;
-      &lt;id&gt;ossrh&lt;/id&gt;
-      &lt;username&gt;your-jira-id&lt;/username&gt;
-      &lt;password&gt;your-jira-pwd&lt;/password&gt;
-    &lt;/server&gt;
-  &lt;/servers&gt;
-&lt;/settings&gt;
-</pre></div></div>
-  
-<ul>
-    
-<li>Snapshot artifacts will be deployed into repository: <a class="externalLink" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a>.  Once deployed, test the snapshot by consuming it from: <a class="externalLink" href="https://oss.sonatype.org/content/groups/public">https://oss.sonatype.org/content/groups/public</a></li>
-  </ul>
-  
-<ul>
-    
-<li>Release artifacts will be deployed into repository: <a class="externalLink" href="https://oss.sonatype.org/service/local/staging/deploy/maven2">https://oss.sonatype.org/service/local/staging/deploy/maven2</a></li>
-  </ul>
-<p>After staged artifacts are promoted into repository &#x2018;Releases&#x2019;:</p>
-  
-<ul>
-    
-<li>Snapshot and Release artifacts can be downloaded from: <a class="externalLink" href="https://oss.sonatype.org/content/groups/public">https://oss.sonatype.org/content/groups/public</a></li>
-    
-<li>Snapshot, Release and staged artifacts can be downloaded from staging group <a class="externalLink" href="https://oss.sonatype.org/content/groups/staging">https://oss.sonatype.org/content/groups/staging</a></li>
-  </ul>
-<p>After a release is complete, the preferred approach is to simply download from maven central.</p></li>
-</ul>
+            <div class="section">
+<h2><a name="About_Active_Stack_Framework"></a>About Active Stack Framework</h2><a name="About_Active_Stack_Framework"></a>
+<p>Provides common interfaces.</p></div>
                   </div>
             </div>
           </div>
