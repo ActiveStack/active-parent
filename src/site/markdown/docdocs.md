@@ -12,6 +12,10 @@ Here is some documentation about how this documentation is written. Feel free to
     
   3. You may also find some `README.md` files scattered around the source tree as well.
 
+Site Generation - You can build a local copy of the site for review while editing using this command:
+
+    ./mvnw clean site    
+The resulting site will be located in: `./target/site/index.html`
 
 Doc Publishing
 --------------

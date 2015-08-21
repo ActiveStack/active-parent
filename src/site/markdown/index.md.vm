@@ -22,3 +22,16 @@ misc notes:
      
      (Note: Initial maven-wrapper files were setup as per: [maven-wrapper](https://github.com/takari/maven-wrapper),
       using: `mvn -N io.takari:maven:wrapper`.)
+
+* Publishing:
+  
+    To deploy to maven central, follow the steps described here: [http://central.sonatype.org/pages/apache-maven.html](http://central.sonatype.org/pages/apache-maven.html)
+    
+    You will need at least the following configuration in your `.m2/settings.xml` file:
+    
+        <server>
+            <id>ossrh</id>
+            <username>your-jira-id</username>
+            <password>your-jira-pwd</password>
+        </server>
+        
