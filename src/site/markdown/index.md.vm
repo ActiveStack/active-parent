@@ -39,12 +39,14 @@ misc notes:
           </servers>
         </settings>
         
-    * Snapshot artifacts will be deployed into repository: ${project.distributionManagement.snapshotRepository.url}
+    * Snapshot artifacts will be deployed into repository: ${project.distributionManagement.snapshotRepository.url}.
+      Once deployed, test the snapshot by consuming it from: https://oss.sonatype.org/content/groups/public
+      
     * Release artifacts will be deployed into repository: https://oss.sonatype.org/service/local/staging/deploy/maven2
     
-    After staged artifacts are promoted into repository 'Releases':
+     After staged artifacts are promoted into repository 'Releases':
     
-    * Release and Snapshot artifacts can be downloaded from: https://oss.sonatype.org/content/groups/public
-    * Snapshot, Release and staged artifacts from staging group https://oss.sonatype.org/content/groups/staging
+    * Snapshot and Release artifacts can be downloaded from: https://oss.sonatype.org/content/groups/public
+    * Snapshot, Release and staged artifacts can be downloaded from staging group https://oss.sonatype.org/content/groups/staging
     
     After a release is complete, the preferred approach is to simply download from maven central.
