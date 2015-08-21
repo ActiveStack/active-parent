@@ -10,7 +10,7 @@
 
   <name>Active Stack Parent</name>
   <description>Parent pom of active stack projects.</description>
-  <url>http://activestack.github.io/active-parent/</url>
+  <url>http://activestack.github.io/${project.artifactId}/</url>
   <inceptionYear>2015</inceptionYear>
   <licenses>
     <license>
@@ -34,22 +34,22 @@
   </prerequisites>
 
   <scm>
-    <url>https://github.com/ActiveStack/active-parent</url>
-    <connection>scm:git:git://github.com/ActiveStack/active-parent.git</connection>
-    <developerConnection>scm:git:git@github.com/ActiveStack/active-parent.git</developerConnection>
+    <url>https://github.com/ActiveStack/${project.artifactId}</url>
+    <connection>scm:git:git://github.com/ActiveStack/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:git@github.com/ActiveStack/${project.artifactId}.git</developerConnection>
   </scm>
   <issueManagement>
     <system>github</system>
-    <url>https://github.com/ActiveStack/active-parent/issues</url>
+    <url>https://github.com/ActiveStack/${project.artifactId}/issues</url>
   </issueManagement>
   <ciManagement>
     <system>Circle CI</system>
-    <url>https://circleci.com/gh/ActiveStack/active-parent</url>
+    <url>https://circleci.com/gh/ActiveStack/${project.artifactId}</url>
   </ciManagement>
   <distributionManagement>
     <site>
       <id>github-project-site</id>
-      <url>gitsite:git@github.com/ActiveStack/active-parent.git</url>
+      <url>gitsite:git@github.com/ActiveStack/${project.artifactId}.git</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
