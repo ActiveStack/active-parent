@@ -205,6 +205,23 @@
 <div class="source"><pre class="prettyprint"> $ ./mvnw.cmd clean package
 </pre></div></div> A normal Maven build will be executed with the one important change that if the user doesn&#x2019;t have the necessary  version of Maven specified in <tt>.mvn/wrapper/maven-wrapper.properties</tt> it will be downloaded for the user first.
 <p>(Note: Initial maven-wrapper files were setup as per: <a class="externalLink" href="https://github.com/takari/maven-wrapper">maven-wrapper</a>,  using: <tt>mvn -N io.takari:maven:wrapper</tt>.)</p></li>
+  
+<li>
+<p>Publishing:</p>
+<p>To deploy to maven central, follow the steps described here: <a class="externalLink" href="http://central.sonatype.org/pages/apache-maven.html">http://central.sonatype.org/pages/apache-maven.html</a></p>
+<p>You will need at least the following configuration in your <tt>.m2/settings.xml</tt> file:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">&lt;settings&gt;
+  &lt;servers&gt;
+    &lt;server&gt;
+      &lt;id&gt;ossrh&lt;/id&gt;
+      &lt;username&gt;your-jira-id&lt;/username&gt;
+      &lt;password&gt;your-jira-pwd&lt;/password&gt;
+    &lt;/server&gt;
+  &lt;/servers&gt;
+&lt;/settings&gt;
+</pre></div></div></li>
 </ul>
                   </div>
             </div>
