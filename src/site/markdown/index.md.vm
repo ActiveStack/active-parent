@@ -13,10 +13,10 @@ misc notes:
         $ mvn clean package
      But now, with a Maven Wrapper setup, you can instruct users to run wrapper scripts:
   
-         $ ./mvnw clean package
+        $ ./mvnw clean package
      or
   
-         $ ./mvnw.cmd clean package
+        $ ./mvnw.cmd clean package
      A normal Maven build will be executed with the one important change that if the user doesn't have the necessary 
      version of Maven specified in `.mvn/wrapper/maven-wrapper.properties` it will be downloaded for the user first.     
      

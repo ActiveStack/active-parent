@@ -14,7 +14,7 @@ Here is some documentation about how this documentation is written. Feel free to
 
 Site Generation - You can build a local copy of the site for review while editing using this command:
 
-    ./mvnw clean site    
+    $ ./mvnw clean site    
 The resulting site will be located in: `./target/site/index.html`
 
 Doc Publishing
