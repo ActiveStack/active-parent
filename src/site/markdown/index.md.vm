@@ -40,8 +40,23 @@ misc notes:
         </settings>
         
     * Snapshot artifacts will be deployed into repository: ${project.distributionManagement.snapshotRepository.url}.
-      Once deployed, test the snapshot by consuming it from: https://oss.sonatype.org/content/groups/public
+      Once deployed, test the snapshot by consuming it from: https://oss.sonatype.org/content/groups/public      
+      You could test snapshots by adding the following to your `.m2/settings.xml` and activating the `ossrh-staging` profile:
       
+        <profiles>
+            <!-- ActiveStack test snapshot repo -->
+            <profile>
+                <id>ossrh-staging</id>    	    
+                <repositories>
+                    <repository>
+                        <id>ossrh-snapshot</id>
+                        <url> https://oss.sonatype.org/content/groups/public/</url>
+                        <releases><enabled>false</enabled></releases>
+                        <snapshots><enabled>true</enabled></snapshots>
+                    </repository>
+                </repositories>
+            </profile>
+        </profiles>      
     * Release artifacts will be deployed into repository: https://oss.sonatype.org/service/local/staging/deploy/maven2
     
      After staged artifacts are promoted into repository 'Releases':
