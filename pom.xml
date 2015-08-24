@@ -49,7 +49,7 @@
   <distributionManagement>
     <site>
       <id>github-project-site</id>
-      <url>gitsite:git@github.com/ActiveStack/${project.artifactId}.git</url>
+      <url>gitsite:git@github.com/ActiveStack/${project.artifactId}.git/</url>
     </site>
     <snapshotRepository>
       <id>ossrh</id>
