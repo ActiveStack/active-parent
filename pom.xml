@@ -242,15 +242,13 @@
 
       </plugins>
     </pluginManagement>
-
-    <!-- This exists only to trigger the maven-scm-publish-plugin to deploy the site to gh-pages. -->
     <plugins>
+      <!-- This exists only to trigger the maven-scm-publish-plugin to deploy the site to gh-pages. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-publish-plugin</artifactId>
       </plugin>
     </plugins>
-
   </build>
 
   <reporting>
