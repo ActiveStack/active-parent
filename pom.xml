@@ -4,7 +4,7 @@
 
   <groupId>org.activestack</groupId>
   <artifactId>active-parent</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <name>Active Stack Parent</name>
@@ -36,7 +36,7 @@
     <url>https://github.com/ActiveStack/${project.artifactId}</url>
     <connection>scm:git:git://github.com/ActiveStack/${project.artifactId}.git</connection>
     <developerConnection>scm:git:git@github.com:ActiveStack/${project.artifactId}.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>active-parent-1.0.1</tag>
   </scm>
   <issueManagement>
     <system>github</system>
