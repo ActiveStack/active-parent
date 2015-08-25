@@ -179,6 +179,8 @@
           <configuration>
             <serverId>ossrh</serverId>
             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <!-- find this id via: http://blog.sonatype.com/2013/09/simplified-releases-to-the-central-repository-with-nexus/#.Vdvp0bS760F -->
+            <stagingProfileId>2db4d709195a39</stagingProfileId>
             <autoReleaseAfterClose>true</autoReleaseAfterClose>
           </configuration>
         </plugin>
