@@ -41,7 +41,7 @@
                   <li id="publishDate">Last Published: 2015-08-25
                       <span class="divider">|</span>
                    </li>
-                  <li id="projectVersion">Version: 1.0.1
+                  <li id="projectVersion">Version: 1.0.2-SNAPSHOT
                       </li>
                       
                 
@@ -208,7 +208,50 @@
   
 <li>
 <p>Publishing:</p>
-<p>To deploy to maven central, follow the steps described here: <a class="externalLink" href="http://central.sonatype.org/pages/apache-maven.html">http://central.sonatype.org/pages/apache-maven.html</a></p>
+<p>To deploy to maven central, follow the steps described <a class="externalLink" href="http://central.sonatype.org/pages/apache-maven.html">here</a>. A summary of these steps follows.</p>
+  
+<ul>
+    
+<li>GPG - (One time setup) Be sure you have installed and configured gpg as described  <a class="externalLink" href="http://central.sonatype.org/pages/working-with-pgp-signatures.html">here</a>.</li>
+  </ul>
+<p>If gpg is not installed, you may see an error like this:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">[ERROR] Failed to execute goal org.apache.maven.plugins:maven-gpg-plugin:1.6:sign (sign-artifacts) on project active-parent: Unable to execute gpg command: Error while executing process. Cannot run program &quot;gpg&quot;: error=2, No such file or directory -&gt; [Help 1]        
+</pre></div></div> On Mac OSX, you can install gpg via <a class="externalLink" href="http://brew.sh">brew</a>, via: <tt>$ brew install gpg</tt>
+<p>If you have not configured gpg, you may see an error like this:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">[INFO] --- maven-gpg-plugin:1.6:sign (sign-artifacts) @ active-parent ---
+gpg: no default secret key: secret key not available
+gpg: signing failed: secret key not available
+</pre></div></div> Fix this error by configuring and distributing your gpg key as described <a class="externalLink" href="http://central.sonatype.org/pages/working-with-pgp-signatures.html">here</a>.
+<p>Setup the gpg passphrase and key name in your <tt>.m2/settings.xml</tt> file as described  <a class="externalLink" href="https://maven.apache.org/plugins/maven-gpg-plugin/usage.html">here</a> under section  &#x2018;Configure passphrase in settings.xml with a keyname&#x2019;:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">  &lt;settings&gt;
+    [...]
+    &lt;servers&gt;
+      [...]
+      &lt;server&gt;
+        &lt;id&gt;your.keyname&lt;/id&gt;
+        &lt;passphrase&gt;clear or encrypted text&lt;/passphrase&gt;
+      &lt;/server&gt;
+    &lt;/servers&gt;
+
+    [...]
+    &lt;profiles&gt;
+      &lt;profile&gt;
+        &lt;activation&gt;
+          &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+        &lt;/activation&gt;
+        &lt;properties&gt;
+          &lt;gpg.keyname&gt;your.keyname&lt;/gpg.keyname&gt;
+        &lt;/properties&gt;
+      &lt;/profile&gt;
+    &lt;profiles&gt;
+  &lt;/settings&gt;
+</pre></div></div> You can test you gpg configuration by running: <tt>$ ./mvnw clean verify</tt>
 <p>You will need at least the following configuration in your <tt>.m2/settings.xml</tt> file:</p>
   
 <div class="source">
@@ -237,8 +280,14 @@
             &lt;repository&gt;
                 &lt;id&gt;ossrh-snapshot&lt;/id&gt;
                 &lt;url&gt; https://oss.sonatype.org/content/groups/public/&lt;/url&gt;
-                &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
-                &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
+                &lt;releases&gt;
+                    &lt;enabled&gt;false&lt;/enabled&gt;
+                    &lt;checksumPolicy&gt;fail&lt;/checksumPolicy&gt;
+                &lt;/releases&gt;
+                &lt;snapshots&gt;
+                    &lt;enabled&gt;true&lt;/enabled&gt;
+                    &lt;checksumPolicy&gt;fail&lt;/checksumPolicy&gt;
+                &lt;/snapshots&gt;                    
             &lt;/repository&gt;
         &lt;/repositories&gt;
     &lt;/profile&gt;
