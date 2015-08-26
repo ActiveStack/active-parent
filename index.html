@@ -251,8 +251,17 @@ gpg: signing failed: secret key not available
       &lt;/profile&gt;
     &lt;profiles&gt;
   &lt;/settings&gt;
-</pre></div></div> You can test you gpg configuration by running: <tt>$ ./mvnw clean verify</tt>
-<p>You will need at least the following configuration in your <tt>.m2/settings.xml</tt> file:</p>
+</pre></div></div> Test your gpg configuration by running: <tt>$ ./mvnw clean verify</tt>
+  
+<ul>
+    
+<li>Deploy SNAPSHOT to OSSRH for testing</li>
+  </ul>
+<p>To deploy a test SNAPSHOT version to <tt>ossrh</tt> for testing, first ensure your artifact &lt;version&gt; ends in <tt>-SNAPSHOT</tt>,  then run:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">  $ ./mvnw deploy
+</pre></div></div> To deploy the SNAPSHOT to <tt>ossrh</tt>, you need the following configuration in your <tt>.m2/settings.xml</tt> file:
   
 <div class="source">
 <div class="source"><pre class="prettyprint">&lt;settings&gt;
@@ -268,7 +277,7 @@ gpg: signing failed: secret key not available
   
 <ul>
     
-<li>Snapshot artifacts will be deployed into repository: <a class="externalLink" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a>.  Once deployed, test the snapshot by consuming it from: <a class="externalLink" href="https://oss.sonatype.org/content/groups/public">https://oss.sonatype.org/content/groups/public</a><br /> You could test snapshots by adding the following to your <tt>.m2/settings.xml</tt> and activating the <tt>ossrh-staging</tt> profile:</li>
+<li>Snapshot artifacts will be deployed into repository: <a class="externalLink" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a>.  Once deployed, test the snapshot by consuming it from: <a class="externalLink" href="https://oss.sonatype.org/content/groups/public">https://oss.sonatype.org/content/groups/public</a><br /> Test the snapshot by adding the following to <tt>.m2/settings.xml</tt> and activating the <tt>ossrh-staging</tt>  profile via: <tt>./mvnw -Possrh-staging ...</tt>. Make sure projects that depend on the snapshot behave as expected.</li>
   </ul>
   
 <div class="source">
@@ -296,6 +305,17 @@ gpg: signing failed: secret key not available
   
 <ul>
     
+<li>Deploy Release artifacts to OSSRH - central</li>
+  </ul>
+<p>When you are ready to release a new version, run the following:</p>
+  
+<div class="source">
+<div class="source"><pre class="prettyprint">  $ ./mvnw release:prepare
+  $ ./mvnw release:perform
+</pre></div></div>
+  
+<ul>
+    
 <li>Release artifacts will be deployed into repository: <a class="externalLink" href="https://oss.sonatype.org/service/local/staging/deploy/maven2">https://oss.sonatype.org/service/local/staging/deploy/maven2</a></li>
   </ul>
 <p>After staged artifacts are promoted into repository &#x2018;Releases&#x2019;:</p>
@@ -306,7 +326,7 @@ gpg: signing failed: secret key not available
     
 <li>Snapshot, Release and staged artifacts can be downloaded from staging group <a class="externalLink" href="https://oss.sonatype.org/content/groups/staging">https://oss.sonatype.org/content/groups/staging</a></li>
   </ul>
-<p>After a release is complete, the preferred approach is to simply download from maven central.</p></li>
+<p>After a release is complete, the preferred approach is to simply download from maven central, so there is no need to use the url&#x2019;s above nor the ossrh-staging profile.</p></li>
 </ul>
                   </div>
             </div>
