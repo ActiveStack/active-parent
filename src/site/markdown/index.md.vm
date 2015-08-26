@@ -25,8 +25,52 @@ misc notes:
 
 * Publishing:
   
-    To deploy to maven central, follow the steps described here: [http://central.sonatype.org/pages/apache-maven.html](http://central.sonatype.org/pages/apache-maven.html)
+    To deploy to maven central, follow the steps described [here](http://central.sonatype.org/pages/apache-maven.html).
+    A summary of these steps follows.
+        
+    * GPG - (One time setup) Be sure you have installed and configured gpg as described 
+      [here](http://central.sonatype.org/pages/working-with-pgp-signatures.html). 
+      
+      If gpg is not installed, you may see an error like this:
     
+        [ERROR] Failed to execute goal org.apache.maven.plugins:maven-gpg-plugin:1.6:sign (sign-artifacts) on project active-parent: Unable to execute gpg command: Error while executing process. Cannot run program "gpg": error=2, No such file or directory -> [Help 1]        
+      On Mac OSX, you can install gpg via [brew](http://brew.sh), via: `$ brew install gpg`
+    
+      If you have not configured gpg, you may see an error like this:
+    
+        [INFO] --- maven-gpg-plugin:1.6:sign (sign-artifacts) @ active-parent ---
+        gpg: no default secret key: secret key not available
+        gpg: signing failed: secret key not available
+      Fix this error by configuring and distributing your gpg key as described [here](http://central.sonatype.org/pages/working-with-pgp-signatures.html).
+       
+       Setup the gpg passphrase and key name in your `.m2/settings.xml` file as described 
+       [here](https://maven.apache.org/plugins/maven-gpg-plugin/usage.html) under section
+       'Configure passphrase in settings.xml with a keyname':
+       
+          <settings>
+            [...]
+            <servers>
+              [...]
+              <server>
+                <id>your.keyname</id>
+                <passphrase>clear or encrypted text</passphrase>
+              </server>
+            </servers>
+          
+            [...]
+            <profiles>
+              <profile>
+                <activation>
+                  <activeByDefault>true</activeByDefault>
+                </activation>
+                <properties>
+                  <gpg.keyname>your.keyname</gpg.keyname>
+                </properties>
+              </profile>
+            <profiles>
+          </settings>
+       You can test you gpg configuration by running: `$ ./mvnw clean verify`
+       
     You will need at least the following configuration in your `.m2/settings.xml` file:
     
         <settings>
@@ -51,8 +95,14 @@ misc notes:
                     <repository>
                         <id>ossrh-snapshot</id>
                         <url> https://oss.sonatype.org/content/groups/public/</url>
-                        <releases><enabled>false</enabled></releases>
-                        <snapshots><enabled>true</enabled></snapshots>
+                        <releases>
+                            <enabled>false</enabled>
+                            <checksumPolicy>fail</checksumPolicy>
+                        </releases>
+                        <snapshots>
+                            <enabled>true</enabled>
+                            <checksumPolicy>fail</checksumPolicy>
+                        </snapshots>                    
                     </repository>
                 </repositories>
             </profile>
