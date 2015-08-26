@@ -124,10 +124,11 @@ misc notes:
           
     * Release artifacts will be deployed into repository: https://oss.sonatype.org/service/local/staging/deploy/maven2
     
-     After staged artifacts are promoted into repository 'Releases':
-    
+      The deployed release artifacts must be promoted from the [Staging Repository](https://oss.sonatype.org/#stagingRepositories)
+      by clicking the 'Close' button, and if that succeeds, the 'Release' button.
+      
     * Snapshot and Release artifacts can be downloaded from: https://oss.sonatype.org/content/groups/public
     * Snapshot, Release and staged artifacts can be downloaded from staging group https://oss.sonatype.org/content/groups/staging
     
-    After a release is complete, the preferred approach is to simply download from maven central, so there is no need to
-    use the url's above nor the ossrh-staging profile.
+    After a release is complete, the preferred approach is to simply download from maven central, so there 
+    is no need to use the url's above nor the ossrh-staging profile.
