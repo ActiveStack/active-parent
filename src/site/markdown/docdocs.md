@@ -46,15 +46,3 @@ To deploy these docs to GH Pages, we use [maven-scm-publish-plugin](https://mave
   
         $ git checkout master
         $ mvn clean site-deploy
-        
-    Note: To deploy to gh-pages, you need the following in your `.m2/settings.xml`:
-        
-        <settings>
-          <servers>
-            <server>
-                <id>github-project-site</id>
-                <username>git</username>
-            </server>
-            ...
-          </servers>
-          ...
