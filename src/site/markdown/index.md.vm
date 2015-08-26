@@ -69,9 +69,15 @@ misc notes:
               </profile>
             <profiles>
           </settings>
-       You can test you gpg configuration by running: `$ ./mvnw clean verify`
+       Test your gpg configuration by running: `$ ./mvnw clean verify`
        
-    You will need at least the following configuration in your `.m2/settings.xml` file:
+    * Deploy SNAPSHOT to OSSRH for testing
+    
+      To deploy a test SNAPSHOT version to `ossrh` for testing, first ensure your artifact \<version> ends in `-SNAPSHOT`,
+      then run:
+      
+          $ ./mvnw deploy
+      To deploy the SNAPSHOT to `ossrh`, you need the following configuration in your `.m2/settings.xml` file:
     
         <settings>
           <servers>
@@ -85,7 +91,8 @@ misc notes:
         
     * Snapshot artifacts will be deployed into repository: ${project.distributionManagement.snapshotRepository.url}.
       Once deployed, test the snapshot by consuming it from: https://oss.sonatype.org/content/groups/public      
-      You could test snapshots by adding the following to your `.m2/settings.xml` and activating the `ossrh-staging` profile:
+      Test the snapshot by adding the following to `.m2/settings.xml` and activating the `ossrh-staging` 
+      profile via: `./mvnw -Possrh-staging ...`. Make sure projects that depend on the snapshot behave as expected.
       
         <profiles>
             <!-- ActiveStack test snapshot repo -->
@@ -107,6 +114,14 @@ misc notes:
                 </repositories>
             </profile>
         </profiles>      
+        
+    * Deploy Release artifacts to OSSRH - central
+    
+      When you are ready to release a new version, run the following:
+      
+          $ ./mvnw release:prepare
+          $ ./mvnw release:perform
+          
     * Release artifacts will be deployed into repository: https://oss.sonatype.org/service/local/staging/deploy/maven2
     
      After staged artifacts are promoted into repository 'Releases':
@@ -114,4 +129,5 @@ misc notes:
     * Snapshot and Release artifacts can be downloaded from: https://oss.sonatype.org/content/groups/public
     * Snapshot, Release and staged artifacts can be downloaded from staging group https://oss.sonatype.org/content/groups/staging
     
-    After a release is complete, the preferred approach is to simply download from maven central.
+    After a release is complete, the preferred approach is to simply download from maven central, so there is no need to
+    use the url's above nor the ossrh-staging profile.
