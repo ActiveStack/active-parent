@@ -1,313 +1,351 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.activestack</groupId>
-  <artifactId>active-parent</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <groupId>org.activestack</groupId>
+    <artifactId>active-parent</artifactId>
+    <version>1.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-  <name>Active Stack Parent</name>
-  <description>Parent pom of active stack projects.</description>
-  <url>http://activestack.github.io/${project.artifactId}/</url>
-  <inceptionYear>2015</inceptionYear>
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>http://www.opensource.org/licenses/mit-license.php</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
+    <name>Active Stack Parent</name>
+    <description>Parent pom of active stack projects.</description>
+    <url>http://activestack.github.io/${project.artifactId}/</url>
+    <inceptionYear>2015</inceptionYear>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-  <developers>
-    <developer>
-      <id>bhamail</id>
-      <name>Dan Rollo</name>
-      <email>danrollo@gmail.com</email>
-      <timezone>-4</timezone>
-    </developer>
-  </developers>
+    <developers>
+        <developer>
+            <id>bhamail</id>
+            <name>Dan Rollo</name>
+            <email>danrollo@gmail.com</email>
+            <timezone>-4</timezone>
+        </developer>
+    </developers>
 
-  <prerequisites>
-    <maven>3</maven>
-  </prerequisites>
+    <prerequisites>
+        <maven>3</maven>
+    </prerequisites>
 
-  <scm>
-    <url>https://github.com/ActiveStack/${project.artifactId}</url>
-    <connection>scm:git:git://github.com/ActiveStack/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:git@github.com:ActiveStack/${project.artifactId}.git</developerConnection>
-    <tag>HEAD</tag>
-  </scm>
-  <issueManagement>
-    <system>github</system>
-    <url>https://github.com/ActiveStack/${project.artifactId}/issues</url>
-  </issueManagement>
-  <ciManagement>
-    <system>Circle CI</system>
-    <url>https://circleci.com/gh/ActiveStack/${project.artifactId}</url>
-  </ciManagement>
-  <distributionManagement>
-    <site>
-      <id>gh-pages.git.server</id>
-      <url>scm:git:git@github.com:ActiveStack/${project.artifactId}.git</url>
-    </site>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
+    <scm>
+        <url>https://github.com/ActiveStack/${project.artifactId}</url>
+        <connection>scm:git:git://github.com/ActiveStack/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:git@github.com:ActiveStack/${project.artifactId}.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/ActiveStack/${project.artifactId}/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Circle CI</system>
+        <url>https://circleci.com/gh/ActiveStack/${project.artifactId}</url>
+    </ciManagement>
+    <distributionManagement>
+        <site>
+            <id>gh-pages.git.server</id>
+            <url>scm:git:git@github.com:ActiveStack/${project.artifactId}.git</url>
+        </site>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <version-maven-linkcheck-plugin>1.2</version-maven-linkcheck-plugin>
-  </properties>
+        <version-maven-linkcheck-plugin>1.2</version-maven-linkcheck-plugin>
+    </properties>
 
-  <build>
-    <pluginManagement>
-      <plugins>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
 
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>tidy-maven-plugin</artifactId>
-          <version>1.0-beta-1</version>
-        </plugin>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.10.19</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>versions-maven-plugin</artifactId>
-          <version>2.2</version>
-        </plugin>
+    <build>
+        <pluginManagement>
+            <plugins>
 
-        <plugin>
-          <artifactId>maven-linkcheck-plugin</artifactId>
-          <version>${version-maven-linkcheck-plugin}</version>
-        </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>tidy-maven-plugin</artifactId>
+                    <version>1.0-beta-1</version>
+                </plugin>
 
-        <plugin>
-          <!-- used to deploy site to gh-pages. -->
-          <artifactId>maven-scm-publish-plugin</artifactId>
-          <version>1.1</version>
-          <configuration>
-            <!-- This is important for git. -->
-            <scmBranch>gh-pages</scmBranch>
-          </configuration>
-          <executions>
-            <execution>
-              <id>scm-publish</id>
-              <phase>site-deploy</phase>
-              <goals>
-                <goal>publish-scm</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.4</version>
-          <configuration>
-            <!-- we use maven-scm-publish-plugin to deploy, so skip this. -->
-            <skipDeploy>true</skipDeploy>
-          </configuration>
-          <executions>
-            <execution>
-              <id>attach-descriptor</id>
-              <goals>
-                <goal>attach-descriptor</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>stage-for-scm-publish</id>
-              <phase>post-site</phase>
-              <goals>
-                <goal>stage</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-linkcheck-plugin</artifactId>
+                    <version>${version-maven-linkcheck-plugin}</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>2.8</version>
-        </plugin>
+                <plugin>
+                    <!-- used to deploy site to gh-pages. -->
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>1.1</version>
+                    <configuration>
+                        <!-- This is important for git. -->
+                        <scmBranch>gh-pages</scmBranch>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>scm-publish</id>
+                            <phase>site-deploy</phase>
+                            <goals>
+                                <goal>publish-scm</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.4</version>
-          <executions>
-            <execution>
-              <id>attach-sources</id>
-              <goals>
-                <goal>jar-no-fork</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.4</version>
+                    <configuration>
+                        <!-- we use maven-scm-publish-plugin to deploy, so skip this. -->
+                        <skipDeploy>true</skipDeploy>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-descriptor</id>
+                            <goals>
+                                <goal>attach-descriptor</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>stage-for-scm-publish</id>
+                            <phase>post-site</phase>
+                            <goals>
+                                <goal>stage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.10.3</version>
-          <executions>
-            <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                <goal>jar</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.6</version>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-              <configuration>
-                <keyname>${gpg.keyname}</keyname>
-                <passphraseServerId>${gpg.keyname}</passphraseServerId>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.4</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-        <plugin>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.6</version>
-          <extensions>true</extensions>
-          <configuration>
-            <serverId>ossrh</serverId>
-            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-            <!-- find this id via: http://blog.sonatype.com/2013/09/simplified-releases-to-the-central-repository-with-nexus/#.Vdvp0bS760F -->
-            <stagingProfileId>2db4d709195a39</stagingProfileId>
-            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-          </configuration>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.10.3</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
 
-        <!-- transitive plugin dep versions - begin -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>2.6.1</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                            <configuration>
+                                <keyname>${gpg.keyname}</keyname>
+                                <passphraseServerId>${gpg.keyname}</passphraseServerId>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.3</version>
-        </plugin>
+                <plugin>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.6</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <!-- find this id via: http://blog.sonatype.com/2013/09/simplified-releases-to-the-central-repository-with-nexus/#.Vdvp0bS760F -->
+                        <stagingProfileId>2db4d709195a39</stagingProfileId>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.8</version>
-        </plugin>
+                <!-- transitive plugin dep versions - begin -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.6.1</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.5.5</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.10</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.8</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>2.6</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.5.5</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.7</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.18.1</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-        </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.18.1</version>
+                </plugin>
 
-        <plugin>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <!-- transitive plugin dep versions - end -->
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
 
-      </plugins>
-    </pluginManagement>
-    <plugins>
-      <!-- This exists only to trigger the maven-scm-publish-plugin to deploy the site to gh-pages. -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-scm-publish-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
 
-  <reporting>
-    <plugins>
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <!-- transitive plugin dep versions - end -->
 
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>versions-maven-plugin</artifactId>
-      </plugin>
-
-    </plugins>
-  </reporting>
-
-  <profiles>
-
-    <profile>
-      <!-- sign artifacts during release. -->
-      <id>release-sign-artifacts</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
+            </plugins>
+        </pluginManagement>
         <plugins>
-          <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-          </plugin>
+            <!-- This exists only to trigger the maven-scm-publish-plugin to deploy the site to gh-pages. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-publish-plugin</artifactId>
+            </plugin>
         </plugins>
-      </build>
-    </profile>
+    </build>
 
-    <profile>
-      <id>linkcheck</id>
-      <activation>
-        <property>
-          <name>linkcheck.exec</name>
-        </property>
-      </activation>
-      <reporting>
+    <reporting>
         <plugins>
-          <plugin>
-            <artifactId>maven-linkcheck-plugin</artifactId>
-            <version>${version-maven-linkcheck-plugin}</version>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
 
-  </profiles>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </reporting>
+
+    <profiles>
+
+        <!-- ActiveStack test snapshot repo. -->
+        <profile>
+            <id>ossrh-staging</id>
+            <repositories>
+                <repository>
+                    <id>ossrh-snapshot</id>
+                    <url>https://oss.sonatype.org/content/groups/public/</url>
+                    <releases>
+                        <enabled>false</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+
+        <profile>
+            <!-- sign artifacts during release. -->
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>linkcheck</id>
+            <activation>
+                <property>
+                    <name>linkcheck.exec</name>
+                </property>
+            </activation>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-linkcheck-plugin</artifactId>
+                        <version>${version-maven-linkcheck-plugin}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+
+    </profiles>
 </project>

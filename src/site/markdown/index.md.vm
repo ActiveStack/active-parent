@@ -101,7 +101,7 @@ misc notes:
                 <repositories>
                     <repository>
                         <id>ossrh-snapshot</id>
-                        <url> https://oss.sonatype.org/content/groups/public/</url>
+                        <url>https://oss.sonatype.org/content/groups/public/</url>
                         <releases>
                             <enabled>false</enabled>
                             <checksumPolicy>fail</checksumPolicy>
