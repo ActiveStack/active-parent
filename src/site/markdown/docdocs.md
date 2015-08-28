@@ -45,4 +45,4 @@ To deploy these docs to GH Pages, we use [maven-scm-publish-plugin](https://mave
  2. Deploy site to github gh-pages.
   
         $ git checkout master
-        $ mvn clean site-deploy
+        $ ./mvnw clean site-deploy
