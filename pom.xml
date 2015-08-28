@@ -65,7 +65,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <version-maven-linkcheck-plugin>1.2</version-maven-linkcheck-plugin>
+        <javaLanguage.version>1.8</javaLanguage.version>
+
+        <maven-linkcheck-plugin.version>1.2</maven-linkcheck-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -104,7 +106,7 @@
 
                 <plugin>
                     <artifactId>maven-linkcheck-plugin</artifactId>
-                    <version>${version-maven-linkcheck-plugin}</version>
+                    <version>${maven-linkcheck-plugin.version}</version>
                 </plugin>
 
                 <plugin>
@@ -221,6 +223,10 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.3</version>
+                    <configuration>
+                        <source>${javaLanguage.version}</source>
+                        <target>${javaLanguage.version}</target>
+                    </configuration>
                 </plugin>
 
                 <plugin>
@@ -341,7 +347,7 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-linkcheck-plugin</artifactId>
-                        <version>${version-maven-linkcheck-plugin}</version>
+                        <version>${maven-linkcheck-plugin.version}</version>
                     </plugin>
                 </plugins>
             </reporting>
