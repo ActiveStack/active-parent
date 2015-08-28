@@ -22,7 +22,7 @@ Doc Publishing
 
 To deploy these docs to GH Pages, we use [maven-scm-publish-plugin](https://maven.apache.org/plugins/maven-scm-publish-plugin/)
 
- 1. One time - create an empty `gh-pages` branch and push to github.
+ 1. (One time setup) - <a name="createBranchGHPages">create a `gh-pages` branch</a> and push to github.
     
         $ git push
     
