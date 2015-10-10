@@ -158,6 +158,11 @@
                 </plugin>
 
                 <plugin>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+
+                <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>2.4</version>
                     <executions>
@@ -293,6 +298,9 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-changelog-plugin</artifactId>
             </plugin>
 
         </plugins>
