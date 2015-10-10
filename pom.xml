@@ -380,7 +380,7 @@
                 <artifactId>maven-changelog-plugin</artifactId>
             </plugin>
 
-<!--
+<!-- @todo Restore this after 10/10/2015
             <plugin>
                 <artifactId>maven-changes-plugin</artifactId>
             </plugin>
