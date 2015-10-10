@@ -163,6 +163,30 @@
                 </plugin>
 
                 <plugin>
+                    <artifactId>maven-changes-plugin</artifactId>
+                    <version>2.11</version>
+                    <executions>
+                        <execution>
+                            <id>check-changes</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>changes-check</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>validate-changes</id>
+                            <phase>pre-site</phase>
+                            <goals>
+                                <goal>changes-validate</goal>
+                            </goals>
+                            <configuration>
+                                <failOnError>true</failOnError>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>2.4</version>
                     <executions>
@@ -284,6 +308,10 @@
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <artifactId>maven-changes-plugin</artifactId>
+            </plugin>
+
             <!-- This exists only to trigger the maven-scm-publish-plugin to deploy the site to gh-pages. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -301,6 +329,9 @@
             </plugin>
             <plugin>
                 <artifactId>maven-changelog-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-changes-plugin</artifactId>
             </plugin>
 
         </plugins>
